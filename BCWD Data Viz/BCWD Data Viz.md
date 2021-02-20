@@ -297,7 +297,7 @@ sns.boxplot(x, y)
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1568d7757c8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x25e76d1c188>
 
 
 
@@ -847,7 +847,7 @@ df1 = df.drop(columns = ['id'])
 ```python
 fig = plt.figure(figsize = (20, 20))
 ax = fig.add_axes([0, 0, 1, 1])
-sns.heatmap(df1, ax = ax)
+sns.heatmap(df1[df1['diagnosis'] == 1][column[22:]], ax = ax, cmap = 'viridis', linewidths = .1)
 fig.savefig('heatmap.png', bbox_inches = 'tight')
 ```
 
@@ -1014,6 +1014,18 @@ phi = pd.plotting.scatter_matrix(df1[column[1:12]], figsize = (25, 25))
 
 
 ![png](output_42_0.png)
+
+
+
+```python
+fig = plt.figure(figsize = (10, 10))
+axes = fig.add_axes([0, 0, 1, 1])
+sns.swarmplot(x = df['diagnosis'], y = df['concave points_mean'], ax = axes)
+fig.savefig('swarmplot.png', bbox_inches = 'tight')
+```
+
+
+![png](output_43_0.png)
 
 
 
