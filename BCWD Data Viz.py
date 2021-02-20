@@ -284,7 +284,7 @@ df1 = df.drop(columns = ['id'])
 
 fig = plt.figure(figsize = (20, 20))
 ax = fig.add_axes([0, 0, 1, 1])
-sns.heatmap(df1, ax = ax)
+sns.heatmap(df1[df1['diagnosis'] == 1][column[22:]], ax = ax, cmap = 'viridis', linewidths = .1)
 fig.savefig('heatmap.png', bbox_inches = 'tight')
 
 
@@ -404,6 +404,15 @@ g.savefig('FacetGridplot.png')
 
 
 phi = pd.plotting.scatter_matrix(df1[column[1:12]], figsize = (25, 25))
+
+
+# In[44]:
+
+
+fig = plt.figure(figsize = (10, 10))
+axes = fig.add_axes([0, 0, 1, 1])
+sns.swarmplot(x = df['diagnosis'], y = df['concave points_mean'], ax = axes)
+fig.savefig('swarmplot.png', bbox_inches = 'tight')
 
 
 # In[ ]:
